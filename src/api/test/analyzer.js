@@ -1,4 +1,4 @@
-import { fetchListData,fetchVideoData } from "./index.js";
+import { fetchListData,fetchVideoData } from "../index.js";
 
 let hasError = false;
 let playlist = null;
