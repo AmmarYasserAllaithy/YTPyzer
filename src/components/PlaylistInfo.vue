@@ -20,7 +20,7 @@ const channelHRef = `${ytHost}/channel/${props.info.snippet.channelId}`;
 <template>
   <main>
     <h2 class="part flex" dir="auto">
-      <a :href="`${ytHost}/playlist?list=${info.id}`" target="blank">
+      <a :href="`${ytHost}/playlist?list=${info.id}`" target="blank" :aria-label="info.snippet.title">
         {{ info.snippet.title }}
       </a>
     </h2>
@@ -35,7 +35,7 @@ const channelHRef = `${ytHost}/channel/${props.info.snippet.channelId}`;
       <br>
 
       <p>
-        {{ info.contentDetails.itemCount }} videos • <span class="dim">Published on</span>
+        {{ info.contentDetails.itemCount }} videos • <span class="dim">Published at</span>
         {{ new Date(info.snippet.publishedAt).toDateString().substr(4) }}
       </p>
     </section>

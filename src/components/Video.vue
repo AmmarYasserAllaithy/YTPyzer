@@ -73,7 +73,7 @@ const parseDate = (date) => new Date(date).toDateString().substr(4);
     </figure>
 
     <h3>
-      <a :href="videoHref" target="_blank">{{ video.snippet.title }}</a>
+      <a :href="videoHref" target="_blank" :aria-label="video.snippet.title">{{ video.snippet.title }}</a>
     </h3>
 
     <p class="dim max-lines n1">{{ video.snippet.description }}</p>
