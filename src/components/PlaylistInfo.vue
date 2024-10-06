@@ -32,41 +32,38 @@ const channelHRef = `${ytHost}/channel/${props.info.snippet.channelId}`;
         </a>
       </p>
 
+      <br>
+
       <p>
-        {{ info.contentDetails.itemCount }} videos • Published on
+        {{ info.contentDetails.itemCount }} videos • <span class="dim">Published on</span>
         {{ new Date(info.snippet.publishedAt).toDateString().substr(4) }}
       </p>
     </section>
 
-    <p
-      class="dim part desc"
-      :class="{ 'max-lines n3': trimmedDesc }"
-      @click="trimmedDesc = !trimmedDesc"
-    >
+    <p class="dim part desc" :class="{ 'max-lines n3': trimmedDesc }" @click="trimmedDesc = !trimmedDesc">
       {{ info.snippet.description }}
     </p>
 
     <section class="part duration">
       <h3 class="cap">Speeds durations</h3>
 
-      <SpeedDuration speed="1.00" :seconds="info.totalDuration" class="spdu" />
-      <SpeedDuration speed="1.25" :seconds="info.totalDuration" class="spdu" />
-      <SpeedDuration speed="1.50" :seconds="info.totalDuration" class="spdu" />
-      <SpeedDuration speed="1.75" :seconds="info.totalDuration" class="spdu" />
-      <SpeedDuration speed="2.00" :seconds="info.totalDuration" class="spdu" />
-      <SpeedDuration speed="2.25" :seconds="info.totalDuration" class="spdu" />
-      <SpeedDuration speed="2.50" :seconds="info.totalDuration" class="spdu" />
-      <SpeedDuration speed="2.75" :seconds="info.totalDuration" class="spdu" />
+      <article class="speeds">
+        <SpeedDuration speed="1.00" :seconds="info.totalDuration" class="spdu" />
+        <SpeedDuration speed="1.25" :seconds="info.totalDuration" class="spdu" />
+        <SpeedDuration speed="1.50" :seconds="info.totalDuration" class="spdu" />
+        <SpeedDuration speed="1.75" :seconds="info.totalDuration" class="spdu" />
+        <SpeedDuration speed="2.00" :seconds="info.totalDuration" class="spdu" />
+        <SpeedDuration speed="2.25" :seconds="info.totalDuration" class="spdu" />
+        <SpeedDuration speed="2.50" :seconds="info.totalDuration" class="spdu" />
+        <SpeedDuration speed="2.75" :seconds="info.totalDuration" class="spdu" />
+      </article>
     </section>
 
     <section class="part videos">
       <h3 class="cap">Statistics</h3>
 
-      <SpeedDuration
-        label="Average video duration"
-        :seconds="info.totalDuration"
-        :speed="info.contentDetails.itemCount"
-      />
+      <SpeedDuration label="Average video duration" :seconds="info.totalDuration"
+        :speed="info.contentDetails.itemCount" />
 
       <p v-if="info.privateCount">
         <span class="dim">Private:</span>
@@ -93,5 +90,19 @@ const channelHRef = `${ytHost}/channel/${props.info.snippet.channelId}`;
 
 .spdu {
   margin: 0.35rem auto;
+}
+
+@media screen and (min-width: 968px) {
+  .duration .speeds {
+    display: flex;
+    flex-wrap: wrap;
+    place-items: center;
+    place-content: start;
+  }
+
+  .spdu {
+    flex-grow: 1;
+    flex-basis: 45%;
+  }
 }
 </style>
