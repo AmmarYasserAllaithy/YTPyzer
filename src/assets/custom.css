@@ -1,0 +1,83 @@
+@import "./base.css";
+
+.card {
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 10pt;
+  background: var(--color-primary-soft);
+}
+
+.clr {
+  color: var(--color-primary);
+}
+
+.flex,
+.flex-sb {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.flex-sb {
+  place-items: center;
+  place-content: space-between;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.gone {
+  display: none;
+}
+
+.center {
+  text-align: center;
+}
+
+.dim {
+  opacity: 0.6;
+}
+
+.clr-btn {
+  background: var(--color-primary);
+  color: var(--vt-c-white);
+  font-size: inherit;
+  border-radius: 4pt;
+  padding: 0.5rem 0.7rem;
+}
+
+.error {
+  color: #f92323;
+}
+
+.cap {
+  text-transform: uppercase;
+}
+
+.part {
+  margin: 1rem 2rem;
+}
+
+.max-lines {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.max-lines.n1 {
+  -webkit-line-clamp: 1;
+}
+
+.max-lines.n2 {
+  -webkit-line-clamp: 2;
+}
+
+.max-lines.n3 {
+  -webkit-line-clamp: 3;
+}
+
+.max-lines.n4 {
+  -webkit-line-clamp: 4;
+}
