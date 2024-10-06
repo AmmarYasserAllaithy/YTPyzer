@@ -56,6 +56,7 @@ const channelHRef = `${ytHost}/channel/${props.info.snippet.channelId}`;
       <SpeedDuration speed="2.00" :seconds="info.totalDuration" class="spdu" />
       <SpeedDuration speed="2.25" :seconds="info.totalDuration" class="spdu" />
       <SpeedDuration speed="2.50" :seconds="info.totalDuration" class="spdu" />
+      <SpeedDuration speed="2.75" :seconds="info.totalDuration" class="spdu" />
     </section>
 
     <section class="part videos">
