@@ -35,9 +35,11 @@ span {
   display: inline-block;
   font-size: 13px;
   padding: 0.2rem 0.7rem;
+  cursor: pointer;
 }
 
 span.active {
   color: var(--color-text);
+  background: var(--color-primary-soft);
 }
 </style>

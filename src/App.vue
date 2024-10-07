@@ -23,5 +23,6 @@ const viewHome = ref(true);
 <style scoped>
 h1 {
   margin: 2rem;
+  font-size: 27px;
 }
 </style>
