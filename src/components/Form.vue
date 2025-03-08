@@ -34,7 +34,7 @@ const submit = () => {
 const route = useRoute()
 
 onMounted(() => {
-  let id = route.query.id
+  let id = route.query.list
 
   if (id) {
     url.value = `https://youtube.com/playlist?list=${id}`
