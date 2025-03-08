@@ -1,26 +1,10 @@
-<script setup>
-import { ref } from "vue";
-
-const EVENT_NAV = "nav";
-
-const emit = defineEmits(EVENT_NAV);
-const isHome = ref(true);
-
-const nav = (view) => emit(EVENT_NAV, (isHome.value = view == "home"));
-</script>
-
 <template>
   <header class="flex-sb">
     <h1 class="app-title">YTPyzer</h1>
 
     <nav>
-      <span class="clr cap" :class="{ active: isHome }" @click="nav('home')">
-        Home
-      </span>
-
-      <span class="clr cap" :class="{ active: !isHome }" @click="nav('about')">
-        About
-      </span>
+      <RouterLink class="route clr cap" activeClass="active" to="/">Home</RouterLink>
+      <RouterLink class="route clr cap" activeClass="active" to="/about">About</RouterLink>
     </nav>
   </header>
 </template>
@@ -31,14 +15,14 @@ header {
   background: var(--color-primary-soft);
 }
 
-span {
+.route {
   display: inline-block;
   font-size: 13px;
   padding: 0.2rem 0.7rem;
   cursor: pointer;
 }
 
-span.active {
+.route.active {
   color: var(--color-text);
   background: var(--color-primary-soft);
 }
