@@ -1,5 +1,6 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import { useRoute } from "vue-router";
 
 const emit = defineEmits(["analyze"]);
 
@@ -28,20 +29,26 @@ const submit = () => {
 
   if (id) emit("analyze", id);
 };
+
+
+const route = useRoute()
+
+onMounted(() => {
+  let id = route.query.id
+
+  if (id) {
+    url.value = `https://youtube.com/playlist?list=${id}`
+    setTimeout(submit, 500)
+  }
+})
 </script>
 
 <template>
   <form class="flex card" @submit.prevent="submit">
     <label for="urlTF" class="cap">Playlist url</label>
 
-    <input
-      v-model="url"
-      type="url"
-      id="urlTF"
-      class="urlTF"
-      placeholder="youtube.com/playlist?list=PL4cUxeGkcC9hYYGbV60Vq3IXYNfDk8At1"
-      required
-    />
+    <input v-model="url" type="url" id="urlTF" class="urlTF" placeholder="https://youtube.com/playlist?list={id}"
+      required />
 
     <span v-if="errorMsg" class="error">{{ errorMsg }}</span>
 
